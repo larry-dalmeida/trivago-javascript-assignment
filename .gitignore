@@ -8,6 +8,9 @@ yarn-error.log*
 # Dependency directories
 TodoList/node_modules
 
+# Built files
+TodoList/dist
+
 # Optional npm cache directory
 .npm
 
