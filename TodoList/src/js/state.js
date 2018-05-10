@@ -1,68 +1,42 @@
-import {createStore} from './lib/state';
+import {createStore, combineReducers} from 'redux';
 
-const initialState = {
-    filter: 'all',
-    todos: [
-        {
-            id: 0,
-            text: 'Take a look at the application',
-            done: true
-        },
-        {
-            id: 1,
-            text: 'Add ability to filter todos',
-            done: false
-        },
-        {
-            id: 2,
-            text: 'Filter todos by status',
-            done: false
-        },
-        {
-            id: 3,
-            text: 'Filter todos by text',
-            done: false
-        }
-    ]
-};
-
-function todoChangeHandler(state, change) {
-    switch(change.type) {
+/* Reducers */
+function todos(state = [], action) {
+    switch(action.type) {
         case 'ADD_TODO':
-            state.todos.push({
-                id: state.todos.length,
-                text: change.text,
-                done: false
-            });
-            break;
-        case 'TODO_TOGGLE_DONE':
-            for(let todo of state.todos) {
-                if(todo.id === change.id) {
-                    todo.done = !todo.done;
-                    break;
-                }
+          return [
+            ...state, {
+              id: state.length,
+              text: action.text,
+              done: false
             }
-            break;
+          ];
+        case 'TODO_TOGGLE_DONE':
+          return state.map((todo) => {
+            if(todo.id === action.id) {
+              todo.done = !todo.done;
+            }
+            return todo;
+          });
+        default:
+          return state;
     }
 }
 
-function filterChangeHandler(state, change) {
-  switch(change.type) {
+function filter(state = 'all', action) {
+  switch(action.type) {
     case 'FILTER_TODO':
-      state.filter = change.filter;
-      break;
+      return action.filter;
+    default:
+      return state;
   }
 }
 
-function compose(reducers) {
-  return function (state, change) {
-    reducers.forEach(reducer => reducer(state, change));
-  };
+export function configureStore(initialState) {
+  return createStore(combineReducers({
+    todos,
+    filter
+  }), initialState);
 };
 
-const reducers = [
-  todoChangeHandler,
-  filterChangeHandler
-];
 
-export const todos = createStore(compose(reducers), initialState);
