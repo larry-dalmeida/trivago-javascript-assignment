@@ -1,6 +1,8 @@
 import {createStore, combineReducers} from 'redux';
 
-export const defaultInitialState = {
+/* Default States */
+export const defaultActiveFilter = 'all';
+export const defaultState = {
   filter: 'all',
   todos: [
     {
@@ -16,7 +18,7 @@ export const defaultInitialState = {
 };
 
 /* Reducers */
-function todos(state = defaultInitialState.todos, action) {
+function todos(state = defaultState.todos, action) {
   switch (action.type) {
     case 'ADD_TODO':
       return [
@@ -38,7 +40,7 @@ function todos(state = defaultInitialState.todos, action) {
   }
 }
 
-function filter(state = defaultInitialState.filter, action) {
+function filter(state = defaultState.filter, action) {
   switch (action.type) {
     case 'FILTER_TODO':
       return action.filter;

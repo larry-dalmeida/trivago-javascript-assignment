@@ -1,11 +1,14 @@
 import '../css/main.css';
 
-import {configureStore} from './state';
+import {configureStore, defaultState, defaultActiveFilter} from './state';
 import {render} from './view';
 import {registerEventHandlers} from './events';
 import * as storage from './storage';
 
-const initialState = storage.retrieve();
+const initialState = Object.assign({}, storage.initialize(defaultState), {
+  filter: defaultActiveFilter //always show all by default
+});
+
 const store = configureStore(initialState);
 
 store.subscribe(() => {

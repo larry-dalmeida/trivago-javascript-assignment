@@ -1,5 +1,3 @@
-import { defaultState } from './state';
-
 const STORE_NAME = 'todo-app';
 
 export const save = (state) => {
@@ -7,7 +5,12 @@ export const save = (state) => {
 };
 
 export const retrieve = () => {
-  let state = JSON.parse(localStorage.getItem(STORE_NAME));
+  const stateString = localStorage.getItem(STORE_NAME);
+  return stateString !== null ? JSON.parse(stateString) : null;
+};
+
+export const initialize = (defaultState) => {
+  let state = retrieve();
   if(state === null) {
     state = defaultState;
     save(state);
