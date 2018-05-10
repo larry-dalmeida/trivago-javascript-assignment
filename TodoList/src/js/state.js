@@ -1,6 +1,7 @@
 import {createStore} from './lib/state';
 
 const initialState = {
+    filter: 'all',
     todos: [
         {
             id: 0,
@@ -45,4 +46,23 @@ function todoChangeHandler(state, change) {
     }
 }
 
-export const todos = createStore(todoChangeHandler, initialState);
+function filterChangeHandler(state, change) {
+  switch(change.type) {
+    case 'FILTER_TODO':
+      state.filter = change.filter;
+      break;
+  }
+}
+
+function compose(reducers) {
+  return function (state, change) {
+    reducers.forEach(reducer => reducer(state, change));
+  };
+};
+
+const reducers = [
+  todoChangeHandler,
+  filterChangeHandler
+];
+
+export const todos = createStore(compose(reducers), initialState);

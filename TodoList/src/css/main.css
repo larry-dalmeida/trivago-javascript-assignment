@@ -1,20 +1,31 @@
-html, body, .todo {
-    margin: 0;
-    padding: 0;
+html,
+body,
+.todo {
+  margin: 0;
+  padding: 0;
 }
 
 .todo {
-    list-style-type: none;
+  list-style-type: none;
 }
 
-.todo__input, .todo__item {
-    margin: 10px;
+.todo--show-open .todo__item--done {
+  display: none;
+}
+
+.todo--show-closed .todo__item--open {
+  display: none;
+}
+
+.todo__input,
+.todo__item {
+  margin: 10px;
 }
 
 .todo__item--done {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 #addTodo {
-    margin-left: 10px;
+  margin-left: 10px;
 }
