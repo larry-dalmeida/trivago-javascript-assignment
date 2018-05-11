@@ -1,13 +1,16 @@
 import '../css/main.css';
 
-import {configureStore, defaultState, defaultActiveFilter} from './state';
-import {render} from './view';
-import {registerEventHandlers} from './events';
+import { configureStore, getInitialState, defaultActiveFilter } from './store';
+import { render } from './view';
+import { registerEventHandlers } from './events';
 import * as storage from './storage';
 
-const initialState = Object.assign({}, storage.initialize(defaultState), {
-  filter: defaultActiveFilter //always show all by default
-});
+const initialState = {
+  //get state from storage OR initialize to default state
+  ...storage.initialize(getInitialState()),
+  //always set default filter to 'all'
+  filter: defaultActiveFilter
+};
 
 const store = configureStore(initialState);
 

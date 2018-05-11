@@ -1,6 +1,9 @@
-/**
- * Created by pgotthardt on 14/01/16.
- */
+/* types */
+export const TODO_TOGGLE_DONE = 'TODO_TOGGLE_DONE';
+export const ADD_TODO = 'ADD_TODO';
+export const FILTER_TODO = 'FILTER_TODO';
+
+/* action creators */
 export function toggleTodoState(id) {
   return {type: 'TODO_TOGGLE_DONE', id};
 }
