@@ -2,12 +2,12 @@
   "name": "list-filter",
   "version": "1.0.0",
   "description": "A simple filterable list",
+  "author": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
-    "build": "webpack -p --progress --colors --display-chunks"
+    "build": "webpack --config webpack.prod.js",
+    "start": "webpack-dev-server --open --config webpack.dev.js"
   },
-  "author": "",
   "dependencies": {
     "melody-component": "^1.0.4",
     "melody-hoc": "^1.0.4",
@@ -15,7 +15,6 @@
     "melody-parser": "^1.0.4",
     "melody-redux": "^1.0.4",
     "melody-traverse": "^1.0.4",
-    "melody-types": "^1.0.4",
     "redux": "^4.0.0"
   },
   "devDependencies": {
@@ -28,10 +27,15 @@
     "babel-preset-stage-3": "^6.24.1",
     "babel-runtime": "^6.3.19",
     "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^3.0.2",
     "melody-loader": "^1.0.4",
     "melody-plugin-idom": "^1.0.4",
+    "melody-types": "^1.0.4",
+    "optimize-css-assets-webpack-plugin": "^3.2.0",
     "style-loader": "^0.13.0",
+    "uglifyjs-webpack-plugin": "^1.2.5",
     "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.9.3"
+    "webpack-dev-server": "^2.9.3",
+    "webpack-merge": "^4.1.2"
   }
 }

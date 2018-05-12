@@ -10,8 +10,8 @@ node_modules
 TodoList/node_modules
 
 # Built files
-TodoList/dist/bundle.js
-TodoList/dist/bundle.js.map
+TodoList/dist/bundle.*
+TodoList/dist/vendor.*
 
 # Optional npm cache directory
 .npm

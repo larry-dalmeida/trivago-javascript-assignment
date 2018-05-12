@@ -1,10 +1,22 @@
-var path = require('path');
+const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: ['babel-polyfill', path.normalize(__dirname + '/src/index.js')],
-  devtool: 'cheap-module-source-map',
+  entry: {
+    vendor: [
+      'babel-polyfill',
+      'melody-component',
+      'melody-hoc',
+      'melody-redux',
+      'melody-parser',
+      'melody-traverse',
+      'melody-idom',
+      'redux'
+    ],
+    bundle: [path.normalize(__dirname + '/src/index.js')]
+  },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].js',
     path: path.join(__dirname, 'dist')
   },
   module: {
@@ -15,7 +27,7 @@ module.exports = {
         include: [path.resolve(__dirname, './src')],
         use: {
           loader: 'babel-loader',
-          options: {
+          query: {
             presets: ['env', 'stage-3'],
             plugins: [
               'transform-runtime',
@@ -27,7 +39,15 @@ module.exports = {
       {
         test: /\.css$/,
         include: [path.resolve(__dirname, 'src', 'css')],
-        use: ['style-loader', 'css-loader']
+        loader: ExtractTextPlugin.extract({
+          use: [
+            {
+              loader: 'css-loader'
+            }
+          ],
+          // use style-loader in development
+          fallback: 'style-loader'
+        })
       },
       {
         test: /\.twig$/,
@@ -43,11 +63,5 @@ module.exports = {
       }
     ]
   },
-  devServer: {
-    contentBase: path.join(__dirname, 'dist'),
-    watchOptions: {
-      ignored: /node_modules/
-    },
-    overlay: false
-  }
+  plugins: [new ExtractTextPlugin({ filename: 'bundle.css', allChunks: true })]
 };
