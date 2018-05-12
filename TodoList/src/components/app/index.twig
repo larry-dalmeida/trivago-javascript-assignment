@@ -1,0 +1,12 @@
+<div>
+  {% if isRenderBottom %}
+    {% mount '../todoList' %}
+    {% mount '../addTodo' %}
+  {% else %}
+    {% mount '../addTodo' %}
+    {% mount '../todoList' %}
+  {% endif %}
+  {% if hasFilter %}
+    {% mount '../filters' %}
+  {% endif %}
+</div>

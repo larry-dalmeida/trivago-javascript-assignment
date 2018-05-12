@@ -1,0 +1,11 @@
+<label for="{{ value }}">
+  <input 
+    class="js_select_filter" 
+    type="radio" 
+    id="{{ value }}" 
+    name="filter" 
+    value="{{ value }}"
+    ref="{{ toggle }}"
+    {{ { checked: isChecked } | attrs }}>
+  {{ text }}
+</label>

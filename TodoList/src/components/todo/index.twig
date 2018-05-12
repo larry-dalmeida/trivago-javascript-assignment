@@ -1,0 +1,10 @@
+<label for="{{ id }}">
+  <input 
+    id="{{ id }}"
+    value="{{ text }}"
+    type="checkbox" 
+    ref="{{ toggle }}"
+    {{ { checked: done } | attrs }}
+  />
+  {{ text }}
+</label>
