@@ -4,16 +4,34 @@ import { lifecycle, bindEvents, compose } from 'melody-hoc';
 import AddTodo from './addTodo';
 import { addTodo } from '../../actions/';
 
+const handleAddTodo = component => {
+  if (component.text.trim().length !== 0) {
+    /* dispatch action */
+    component.props.addTodo(component.text);
+  }
+  /* set focus on text */
+  const textbox = component.el.querySelector('.todo__input');
+  component.text = '';
+  textbox.value = '';
+  textbox.focus();
+};
+
 const withClickHandlers = bindEvents({
   add: {
     click(event, component) {
-      component.props.addTodo(component.text);
       event.stopPropagation();
+      handleAddTodo(component);
     }
   },
   input: {
     change(event, component) {
       component.text = event.target.value;
+    },
+    keypress(event, component) {
+      component.text = event.target.value;
+      if (event.key === 'Enter') {
+        handleAddTodo(component);
+      }
     }
   }
 });
