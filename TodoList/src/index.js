@@ -20,8 +20,14 @@ const store = configureStore(initialState);
 store.subscribe(() => storage.save(store.getState()));
 
 /* Render */
+const isRenderBottom = isEnabled('renderBottom');
+const isFilterEnabled = isEnabled('filter');
+const isFilterTop = isRenderBottom && isFilterEnabled && isEnabled('filterTop');
+const isFilterBottom = isFilterEnabled && !isFilterTop;
 const documentRoot = document.getElementById('app');
+
 render(documentRoot, provide(store, app), {
-  isRenderBottom: isEnabled('renderBottom'),
-  hasFilter: isEnabled('filter')
+  isRenderBottom,
+  isFilterBottom,
+  isFilterTop
 });

@@ -4,6 +4,10 @@
   </header>
 
   <main>
+    {% if isFilterTop %}
+      {% mount '../filters' %}
+    {% endif %}
+    
     {% if isRenderBottom %}
       {% mount '../todoList' %}
       {% mount '../addTodo' %}
@@ -11,7 +15,8 @@
       {% mount '../addTodo' %}
       {% mount '../todoList' %}
     {% endif %}
-    {% if hasFilter %}
+
+    {% if isFilterBottom %}
       {% mount '../filters' %}
     {% endif %}
   </main>
