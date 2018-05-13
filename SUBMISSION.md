@@ -1,7 +1,7 @@
 # Melodo
 
 A mini-application for managing Todos.
-Live demo: [http://rebel-leg.surge.sh/](http://rebel-leg.surge.sh/)
+Live demo: [http://wholesale-direction.surge.sh/](http://wholesale-direction.surge.sh/)
 
 Git repo: [https://github.com/larry-dalmeida/trivago-javascript-assignment](https://github.com/larry-dalmeida/trivago-javascript-assignment)
 
