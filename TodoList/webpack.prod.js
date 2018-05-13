@@ -9,12 +9,16 @@ module.exports = env => {
   return merge(common(env), {
     plugins: [
       new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+        'process.env.NODE_ENV': JSON.stringify('production')
       }),
       new OptimizeCssAssetsPlugin({
         assetNameRegExp: /\.css$/g,
         cssProcessor: require('cssnano'),
-        cssProcessorOptions: { discardComments: { removeAll: true } },
+        cssProcessorOptions: {
+          discardComments: {
+            removeAll: true
+          }
+        },
         canPrint: true
       }),
       new UglifyJSPlugin()

@@ -9,7 +9,8 @@
     "build:enable-filter": "webpack --env.filter --config webpack.prod.js",
     "start": "webpack-dev-server --open --config webpack.dev.js",
     "start:enable-filter":
-      "webpack-dev-server --env.filter --open --config webpack.dev.js"
+      "webpack-dev-server --env.filter --open --config webpack.dev.js",
+    "deploy": "surge --project ./dist"
   },
   "dependencies": {
     "melody-component": "^1.0.4",
