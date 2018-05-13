@@ -1,7 +1,7 @@
 import { render } from 'melody-component';
 import { provide } from 'melody-redux';
 
-import './css/main.css';
+import './scss/main.scss';
 import app from './components/app';
 import { isEnabled } from './lib/feature';
 import * as storage from './storage';

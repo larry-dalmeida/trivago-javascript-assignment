@@ -1,12 +1,18 @@
-<div>
-  {% if isRenderBottom %}
-    {% mount '../todoList' %}
-    {% mount '../addTodo' %}
-  {% else %}
-    {% mount '../addTodo' %}
-    {% mount '../todoList' %}
-  {% endif %}
-  {% if hasFilter %}
-    {% mount '../filters' %}
-  {% endif %}
+<div class="wrapper">
+  <header class="header">
+    <h1 class="logo">Melodo</h1>
+  </header>
+
+  <main>
+    {% if isRenderBottom %}
+      {% mount '../todoList' %}
+      {% mount '../addTodo' %}
+    {% else %}
+      {% mount '../addTodo' %}
+      {% mount '../todoList' %}
+    {% endif %}
+    {% if hasFilter %}
+      {% mount '../filters' %}
+    {% endif %}
+  </main>
 </div>

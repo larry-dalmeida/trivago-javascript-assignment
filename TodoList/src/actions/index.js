@@ -9,7 +9,7 @@ export function toggleTodoState(id) {
 }
 
 export function addTodo(text) {
-  return {type: 'ADD_TODO', text};
+  return {type: 'ADD_TODO', text };
 }
 
 export function filterTodo(filter) {

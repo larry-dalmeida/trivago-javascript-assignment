@@ -1,6 +1,6 @@
-<label for="{{ value }}">
+<label for="{{ value }}" class="todo__filter radio">
   <input 
-    class="js_select_filter" 
+    class="radio__button" 
     type="radio" 
     id="{{ value }}" 
     name="filter" 
@@ -8,4 +8,5 @@
     ref="{{ toggle }}"
     {{ { checked: isChecked } | attrs }}>
   {{ text }}
+  <div className="radio__indicator" />
 </label>

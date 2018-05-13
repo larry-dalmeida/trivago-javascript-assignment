@@ -1,4 +1,7 @@
-<label for="{{ id }}">
+<div class="todo__checkbox">
+  <label for="{{ id }}">
+    {{ text }}
+  </label>
   <input 
     id="{{ id }}"
     value="{{ text }}"
@@ -6,5 +9,4 @@
     ref="{{ toggle }}"
     {{ { checked: done } | attrs }}
   />
-  {{ text }}
-</label>
+</div>

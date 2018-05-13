@@ -37,13 +37,12 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/,
-        include: [path.resolve(__dirname, 'src', 'css')],
+        test: /\.scss$/,
+        include: [path.resolve(__dirname, 'src', 'scss')],
         loader: ExtractTextPlugin.extract({
           use: [
-            {
-              loader: 'css-loader'
-            }
+            { loader: 'css-loader' },
+            { loader: 'sass-loader' }
           ],
           // use style-loader in development
           fallback: 'style-loader'

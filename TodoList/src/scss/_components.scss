@@ -1,0 +1,116 @@
+/* Wrapper
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.wrapper {
+  padding: 40px 0;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 640px;
+}
+
+/* Header
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.header {
+  margin-bottom: $spacing-1;
+}
+
+.logo {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.2rem;
+  line-height: 38px;
+  text-transform: uppercase;
+}
+
+/* Add Todo
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.todo__add {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: $spacing-1 0;
+}
+
+.todo__button {
+  @extend .button;
+  color: $color-light-2;
+  background-color: lighten($color-brand-2, 10);
+  padding: 10px 15px;
+
+  &:hover,
+  &:focus {
+    background-color: $color-brand-2;
+  }
+}
+
+.todo__input {
+  @extend .text-box;
+  color: $color-light-1;
+  font-size: 4rem;
+  width: 85%;
+}
+
+/* Todos
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.todo {
+  list-style-type: none;
+  margin: $spacing-2 0;
+}
+
+.todo--show-open .todo__item--closed {
+  display: none;
+}
+
+.todo--show-closed .todo__item--open {
+  display: none;
+}
+
+.todo__checkbox {
+  @extend .checkbox;
+
+  label {
+    font-size: 1.5em;
+    width: 100%;
+
+    &:before {
+      top: 9px;
+    }
+    &:after {
+      top: 14px;
+    }
+  }
+}
+
+.todo__item {
+  @extend .gradient-1;
+  border-radius: 4px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  color: $color-light-2;
+  margin-bottom: $spacing-1;
+  padding: 20px 15px;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  &:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+}
+
+.todo__item--closed {
+  background: $color-light-1;
+
+  .todo__checkbox {
+    @extend .checkbox--checked;
+  }
+}
+
+/* Filters
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.todo__filters {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: $spacing-1 0;
+}

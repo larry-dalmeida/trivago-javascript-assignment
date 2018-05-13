@@ -4,12 +4,14 @@ export const defaultTodoState = [
   {
     id: 0,
     text: 'Start a new Trello board for World Domination',
-    done: true
+    done: true,
+    createdAt: Date.now()
   },
   {
     id: 1,
     text: 'Invite Gru and Megamind',
-    done: false
+    done: false,
+    createdAt: Date.now()
   }
 ];
 
@@ -21,6 +23,7 @@ export default function todos(state = defaultTodoState, action) {
         {
           id: state.length,
           text: action.text,
+          createdAt: Date.now(),
           done: false
         }
       ];
