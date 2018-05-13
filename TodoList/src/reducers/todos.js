@@ -1,5 +1,6 @@
 import { ADD_TODO, TODO_TOGGLE_DONE } from '../actions';
 
+/* Add two todos by default if no todos already exist */
 export const defaultTodoState = [
   {
     id: 0,

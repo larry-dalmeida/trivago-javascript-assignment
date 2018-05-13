@@ -1,3 +1,7 @@
+/**
+ * Todo
+ * Renders an individual Todo item
+ */
 import { createComponent } from 'melody-component';
 import { bindEvents } from 'melody-hoc';
 import template from './index.twig';

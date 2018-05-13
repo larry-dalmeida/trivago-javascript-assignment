@@ -1,3 +1,8 @@
+/**
+ * Filter
+ * Renders an individual filter (example: Show open)
+ * Handles events associated with selecting a filter
+ */
 import { createComponent } from 'melody-component';
 import { bindEvents, mapProps, compose } from 'melody-hoc';
 

@@ -1,3 +1,8 @@
+/**
+ * AddTodo
+ * Renders the text box and 'Add' button needed to add new todo
+ * Handles events associated with adding a new todo
+ */
 import { connect } from 'melody-redux';
 import { lifecycle, bindEvents, compose } from 'melody-hoc';
 
@@ -9,7 +14,7 @@ const handleAddTodo = component => {
     /* dispatch action */
     component.props.addTodo(component.text);
   }
-  /* set focus on text */
+  /* set focus on text box after adding a new todo */
   const textbox = component.el.querySelector('.todo__input');
   component.text = '';
   textbox.value = '';

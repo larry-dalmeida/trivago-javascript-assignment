@@ -1,3 +1,8 @@
+/**
+ * Filters
+ * Renders the filters
+ * Handles events associated with toggle filters
+ */
 import { connect } from 'melody-redux';
 import { mapProps } from 'melody-hoc';
 

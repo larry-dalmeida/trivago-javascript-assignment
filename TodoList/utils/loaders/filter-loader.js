@@ -1,5 +1,6 @@
 /**
- *
+ * Filter Loader
+ * 
  * @param {*} source
  * @param {*} map
  *
